@@ -17,7 +17,6 @@ const SearchPage = () => {
   useEffect(() => {
     async function getPetsData() {
       const petNameToFind = queryParams.get('name');
-	  console.log(petNameToFind)
       const petsData = await getPets('', petNameToFind);
 
       setPets(petsData);
@@ -25,7 +24,7 @@ const SearchPage = () => {
 
     getPetsData();
   }, [queryParams]);
-console.log('---------', pets)
+
   return (
     <div className="page">
       <Hero displayText={`Results for ${queryParams.get('name')}`} />

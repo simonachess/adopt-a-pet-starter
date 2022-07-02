@@ -4,29 +4,24 @@ import { useHistory } from 'react-router-dom';
 const Search = () => {
 
   const history = useHistory();
-
   const searchInputRef = useRef();
 
   const onSearchHandler = (e) => {
     e.preventDefault();
 
-    // const searchQuery = new URLSearchParams({
-    //   name: searchInputRef.current.value
-    // }).toString();
+	// const searchQuery = {
+	// 	name: searchInputRef.current.value
+	//   }
+	//   const queryString = new URLSearchParams(searchQuery).toString();
 
-	const searchQuery = {
+    // history.push({ pathname: '/search', search: queryString})
+
+    const searchQuery = new URLSearchParams({
 		name: searchInputRef.current.value
-	  }
-	  const queryString = new URLSearchParams(searchQuery).toString();
-
-
-    history.push({ pathname: '/search', search: queryString})
-	
-	console.log(searchQuery)
-
-	
+	  }).toString();
+  
+	  history.push('/search?' + searchQuery)
   };
-console.log(history)
 
   return (
     <form onSubmit={onSearchHandler} className="search-form">
