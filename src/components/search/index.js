@@ -9,18 +9,12 @@ const Search = () => {
   const onSearchHandler = (e) => {
     e.preventDefault();
 
-	// const searchQuery = {
-	// 	name: searchInputRef.current.value
-	//   }
-	//   const queryString = new URLSearchParams(searchQuery).toString();
-
-    // history.push({ pathname: '/search', search: queryString})
-
     const searchQuery = new URLSearchParams({
 		name: searchInputRef.current.value
 	  }).toString();
   
 	  history.push('/search?' + searchQuery)
+	  // history.push({ pathname: '/search', search: queryString})
   };
 
   return (
